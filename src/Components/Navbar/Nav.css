@@ -1,0 +1,137 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@400;600;700&display=swap');
+
+:root {
+    --header-height: 3.5rem;
+    --box-shadow:0 .5rem 2.5rem rgba(0,0,0,.8);
+  
+    /*========== Colors ==========*/
+    /*Color mode HSL(hue, saturation, lightness)*/
+    --first: hsl(203, 71%, 60%);
+    --second: hsl(277, 56%, 68%);
+    --text: hsl(203, 8%, 98%);
+    --text-light: hsl(203, 8%, 80%);
+    --body-color: hsl(259, 20%, 18%);
+  
+    /*========== Font and typography ==========*/
+    /*.5rem = 8px | 1rem = 16px ...*/
+    --body-font: 'Oxanium', cursive;
+    --biggest-font-size: 2.25rem;
+    --h2-font-size: 1.25rem;
+    --normal-font-size: .938rem;
+    --smaller-font-size: .75rem;
+  
+    /*========== Font weight ==========*/
+    --semi: 600;
+  
+    /*========== z index ==========*/
+    --z-fixed: 100;
+  }
+  
+  /* Responsive typography */
+  @media screen and (min-width: 1024px) {
+    :root {
+      --biggest-font-size: 4rem;
+      --h2-font-size: 1.5rem;
+      --normal-font-size: 1rem;
+      --smaller-font-size: .813rem;
+    }
+  }
+  
+  /*=============== BASE ===============*/
+  * {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+ 
+  }
+  
+  body {
+    scroll-behavior: smooth; 
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+
+    color: var(--text-color);
+
+  }
+  /* ----------navbar------ */
+
+.logo{
+    left:1rem;
+    bottom: -2rem;
+    width: 80px;
+    filter: drop-shadow(0 4px 2px hsla(2-3,71%,60%,.5));
+;
+  }
+a , .navbar a{
+    color:var(--text);
+    font-size: var(--normal-font-size);
+    padding: .5rem 1.5rem;
+}
+.navbar a.active,.navbar a:hover{
+    color:var(--first)
+}
+  header{
+    position: fixed;
+    top: 0;left:0;right: 0;
+    background:var(--body-color) ;
+    padding: 1rem 7%;
+    display: flex;
+ 
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    box-shadow: var(--box-shadow);
+    color:var(--text);
+
+  }
+  .icon i:hover{
+    color:var(--first);
+    cursor: pointer;
+  }
+  .icon i{
+    display:none ;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+  /* -----media queries------ */
+  @media screen and (max-width:991px) {
+    header{
+        padding: 1rem 2rem;
+    }
+  }
+
+  @media screen and (max-width:768px) {
+    .icon i{
+        display:inline-block ;
+        /* display: flex;
+        justify-content: end; */
+      }
+      header .navbar{
+        position: absolute;
+        top:100%;left: 0;right: 0;
+        padding: 1rem;
+        clip-path: polygon(0 0,100% 0,100% 0,0 0);
+    }
+    header .navbar.active{
+        transition: all .5s ease-in-out;
+        clip-path: polygon(0 0,100% 0,100% 100%,0 100%);
+    }
+    header .navbar a{
+        display: block;
+        padding: 1rem;
+        margin: .5rem;
+        background: var(--body-color);
+    }
+  }
